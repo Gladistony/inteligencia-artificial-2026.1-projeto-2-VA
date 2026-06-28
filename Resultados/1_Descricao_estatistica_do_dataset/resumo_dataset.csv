@@ -1,0 +1,9 @@
+﻿Informacao,Valor
+Instancias de treino,32561
+Instancias de teste,16281
+Total de instancias,48842
+Atributos de entrada,14
+Atributos numericos,6
+Atributos categoricos,8
+Classe negativa,<=50K
+Classe positiva,>50K
