@@ -1,75 +1,103 @@
-# Pipeline de Classificação (Adult Dataset) e Artigo LaTeX
+# Predição de Renda (Adult Dataset): Pipeline de Classificação e Artigo Científico
 
-Este repositório contém o pipeline completo de machine learning para classificação do *Adult Dataset*, além dos códigos de análise e a estrutura para compilação do artigo científico associado.
+Este repositório contém o pipeline completo de aprendizado de máquina (*Machine Learning*) para a classificação preditiva do **Adult Income Dataset**, além dos códigos de análise estatística e a estrutura integral em LaTeX para a compilação do artigo científico associado.
+
+## 👥 Autores e Contribuidores
+
+* **Victor Rodrigues de Lima**
+* **Gladistony Silva Lins**
+* **Erick Jonathan Macedo dos Santos**
+* **Isaac Adler Alves de Oliveira**
+* **Instituição**: Universidade Federal Rural de Pernambuco (UFRPE) / Unidade Acadêmica de Belo Jardim
 
 ---
 
-## 📁 Estrutura do Projeto
+## 📖 Sobre o Projeto
 
-*   **`Codigo/`**: Contém o pipeline em Python, scripts de desvio padrão, matrizes de confusão e arquivos gerados (modelos salvos em `.joblib`, predições e tabelas).
-*   **`Artigo Latex/`**: Código-fonte do artigo formatado nos padrões da SBC.
-*   **`Resultados/`**: Relatórios estatísticos, gráficos e comparativos finais gerados pelos modelos.
+O objetivo principal deste estudo é prever se a renda anual de um indivíduo ultrapassa a marca de 50 mil dólares com base em dados censitários (demográficos e socioeconômicos). 
+
+Devido à forte presença de dados heterogêneos e ao desbalanceamento de classes, o projeto implementa um fluxo rigoroso de pré-processamento para evitar o vazamento de dados (*data leakage*). O treinamento e a otimização foram conduzidos com validação cruzada estratificada em 10 partições (*10-fold Cross-Validation*), avaliando seis algoritmos distintos:
+* Árvore de Decisão (*Decision Tree*)
+* Regressão Logística (*Logistic Regression*)
+* K-Vizinhos Mais Próximos (*KNN*)
+* Support Vector Machine Linear (*LinearSVC*)
+* Rede Neural Artificial (*MLP*)
+* Naive Bayes Gaussiano (*GaussianNB*)
+
+---
+
+## 📁 Estrutura do Repositório
+
+* **`Codigo/`**: Contém o pipeline principal em Python, englobando o pré-processamento (imputação, *Z-score*, *One-Hot Encoding*), o *GridSearchCV*, scripts de cálculo de desvio padrão, geração de matrizes de confusão e arquivos exportados (modelos em `.joblib`, predições em CSV e gráficos).
+* **`Artigo Latex/`**: Código-fonte completo do artigo científico formatado rigorosamente nos padrões da Sociedade Brasileira de Computação (SBC).
+* **`Resultados/`**: Relatórios quantitativos, compilações estatísticas e tabelas comparativas geradas ao final da execução dos modelos.
 
 ---
 
 ## 🚀 Como Executar o Projeto
 
-Siga os passos abaixo no terminal para configurar o ambiente, instalar as dependências, rodar os experimentos e compilar o artigo.
+Siga os passos abaixo no seu terminal para configurar o ambiente isolado, instalar as dependências, rodar os experimentos preditivos e compilar o artigo em PDF.
 
 ### 1. Configurar o Ambiente Virtual e Instalar Dependências
 
-Entre na raiz do projeto, crie o ambiente virtual `.venv`, ative-o e instale as bibliotecas necessárias listadas no `requirements.txt`:
+Navegue até a raiz do projeto, crie o ambiente virtual `.venv`, ative-o e instale as bibliotecas necessárias listadas no `requirements.txt`:
 
 ```bash
 # Criar o ambiente virtual
 python3 -m venv .venv
 
-# Ativar o ambiente virtual
+# Ativar o ambiente virtual (Linux/macOS)
 source .venv/bin/activate
+
+# Ativar o ambiente virtual (Windows)
+# .venv\Scripts\activate
 
 # Instalar os requerimentos
 pip install -r Codigo/requirements.txt
+
 ```
 
 ### 2. Executar o Pipeline de Código
 
-Os scripts do diretório `Codigo/` devem ser executados estritamente na sequência abaixo para que os dados e arquivos de cache sejam alimentados corretamente:
+Os scripts localizados no diretório `Codigo/` devem ser executados estritamente na sequência estruturada abaixo. Isso garante que os dados de treino e os arquivos de cache sejam gerados e alimentados corretamente para as próximas etapas:
 
 ```bash
-# Navegar até a pasta do código
+# Navegar até a pasta do código fonte
 cd Codigo
 
-# 1º Passo: Executar o pipeline principal e treinamento dos modelos
+# Passo 1: Executar o pré-processamento, pipeline principal e otimização dos modelos
 python3 Main.py
 
-# 2º Passo: Calcular as métricas e o desvio padrão
+# Passo 2: Calcular as métricas consolidadas e o desvio padrão (K-Fold)
 python3 desvio_padrao.py
 
-# 3º Passo: Gerar as matrizes e gráficos de confusão
-python3 gerar_confusão.py
+# Passo 3: Gerar as matrizes de confusão e gráficos de avaliação
+python3 gerar_confusao.py
 
 ```
 
 ### 3. Compilar o Artigo LaTeX
 
-Para gerar o PDF final do artigo contendo todas as referências cruzadas, citações bibliográficas (BibTeX) e imagens atualizadas, utilize o `latexmk`:
+Para gerar o documento final em PDF contendo todas as referências cruzadas, citações bibliográficas (BibTeX) e as imagens atualizadas pelo código, utilize o utilitário `latexmk`:
 
 ```bash
-# Entrar na pasta do artigo
-cd "Artigo Latex"
+# Retornar à raiz e entrar na pasta do artigo
+cd "../Artigo Latex"
 
 # Compilar o documento automaticamente
 latexmk -pdf main.tex
+
 ```
 
-O arquivo final **`main.pdf`** será gerado automaticamente na mesma pasta.
+O arquivo final com a pesquisa completa, nomeado como **`main.pdf`**, será gerado automaticamente dentro da pasta do artigo.
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Tecnologias e Ferramentas Utilizadas
 
-*   **Linguagem**: Python 3
-*   **Machine Learning**: Scikit-Learn (Decision Tree, KNN, Naive Bayes, Logistic Regression, SVM, MLP)
-*   **Processamento de Dados**: Pandas, NumPy
-*   **Persistência de Modelos**: Joblib
-*   **Texto/Documentação**: TeX Live / LaTeX (`latexmk`)
+* **Linguagem**: Python 3
+* **Machine Learning**: Scikit-Learn
+* **Processamento e Manipulação de Dados**: Pandas, NumPy
+* **Persistência de Modelos**: Joblib
+* **Visualização de Dados**: Matplotlib, Seaborn
+* **Documentação Científica**: TeX Live / LaTeX (`latexmk`)
