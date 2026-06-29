@@ -1,0 +1,7 @@
+Modelo,CV_F1,Origem
+DecisionTree,0.660338850521353,treinado
+KNN,0.6443844167712645,treinado
+GaussianNB,0.5219860846331497,treinado
+LogisticRegression,0.6550819607684986,treinado
+LinearSVM,0.6506552817069003,treinado
+MLP,0.6509486536566336,treinado
