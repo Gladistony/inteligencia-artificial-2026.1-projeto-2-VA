@@ -1,6 +1,6 @@
 # Predição de Renda (Adult Dataset): Pipeline de Classificação e Artigo Científico
 
-Este repositório contém o pipeline completo de aprendizado de máquina (*Machine Learning*) para a classificação preditiva do **Adult Income Dataset**, além dos códigos de análise estatística e a estrutura integral em LaTeX para a compilação do artigo científico associado.
+Este repositório reúne todo o pipeline de aprendizado de máquina (Machine Learning) utilizado para a classificação preditiva do **Adult Income Dataset**, incluindo os scripts de análise estatística e a estrutura completa em LaTeX necessária para a compilação do artigo científico correspondente.
 
 ## 👥 Autores e Contribuidores
 
