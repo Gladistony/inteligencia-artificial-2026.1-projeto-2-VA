@@ -1,0 +1,23 @@
+\section{Trabalhos Relacionados e Fundamentação Teórica}
+
+\subsection{Trabalhos Relacionados}
+A literatura recente apresenta diversos estudos que empregam o \textit{Adult Income Dataset} para tarefas de classificação preditiva e benchmarking de algoritmos. Al-Milli, Al-Anani e Al-Madi \cite{almilli2024investigation} investigaram o impacto de transformações de engenharia de recursos em variáveis socioeconômicas e demográficas desta base para elevar a precisão preditiva. Ao compararem 11 abordagens distintas, observaram que o classificador XGBoost em conjunto com Redes Neurais obteve o melhor desempenho, alcançando 87\% de acurácia.
+
+Em um contexto de segurança da informação, Dimitriou e Karampidis \cite{dimitriou2023comparison} avaliaram o impacto de técnicas de privacidade (como $k$-anonymity e $l$-diversity) na utilidade dos dados para classificação preditiva no mesmo conjunto de dados. Avaliando algoritmos clássicos, os autores concluíram que o \textit{Support Vector Machine} (SVM) e as Árvores de Decisão mantiveram as maiores taxas de acurácia sob anonimização leve, enquanto o modelo Naive Bayes decaiu acentuadamente com a adição de ruído de privacidade.
+
+Ademais, Friedler et al. \cite{friedler2019comparative} realizaram um estudo empírico extensivo para contrapor o compromisso entre a acurácia de predição de renda e métricas de justiça algorítmica (focando na mitigação de viés de gênero e raça). No critério estrito de acurácia preditiva bruta, os modelos baseados em comitês e o SVM superaram abordagens lineares mais simples.
+
+\subsection{Fundamentação Teórica dos Algoritmos}
+A fim de estabelecer uma base comparativa sólida, os seis algoritmos avaliados neste trabalho possuem fundamentações matemáticas consolidadas na literatura de aprendizado de máquina tabular.
+
+As \textbf{Árvores de Decisão} baseiam-se em uma estrutura hierárquica de divisão do espaço de atributos em hiperretângulos disjuntos. O algoritmo seleciona de forma gananciosa o atributo que maximiza a pureza dos nós filhos (através da redução de entropia ou do ganho de informação), mapeando regras condicionais de partição diretamente interpretáveis. A fundamentação matemática clássica desta abordagem advém do algoritmo ID3 e de sua extensão C4.5, desenvolvidos por Quinlan \cite{quinlan1986induction}.
+
+O classificador \textbf{K-Vizinhos Mais Próximos (KNN)} é um algoritmo baseado em instância que não gera uma função discriminante explícita durante o treinamento. Diante de uma nova instância tabular, o modelo calcula a distância geométrica entre este ponto e os dados de treino, atribuindo a classe majoritária dentre os $K$ vetores mais próximos. O arcabouço de consistência assintótica do método foi formalizado por Cover e Hart \cite{coverhart1967nearest}.
+
+O \textbf{Naive Bayes} é um classificador probabilístico fundamentado no Teorema de Bayes, o qual assume a forte hipótese de independência condicional entre todos os atributos tabulares dada a classe alvo. O algoritmo computa as probabilidades a priori das classes e as probabilidades condicionais de cada característica demográfica, combinando-as para inferir a probabilidade máxima. A consolidação teórica desse método é comumente atribuída ao trabalho de Duda e Hart \cite{dudahart1973pattern}.
+
+A \textbf{Regressão Logística} é um modelo linear estruturado para tarefas de classificação binária que estima a probabilidade de ocorrência do evento de interesse aplicando a função sigmoide sobre uma combinação linear ponderada dos atributos de entrada. Os parâmetros são otimizados iterativamente através da maximização da função de verossimilhança. A formalização estatística basilar deste modelo preditivo é creditada a Cox \cite{cox1958regression}.
+
+O algoritmo \textbf{Linear SVM} busca determinar um hiperplano ótimo de separação linear que maximize a margem geométrica entre as instâncias das duas classes no espaço original. O modelo foca a otimização matemática exclusivamente nos vetores de suporte, utilizando uma penalidade de margem suave para acomodar distribuições sobrepostas. Este método foi proposto sob a Teoria do Aprendizado Estatístico desenvolvida por Cortes e Vapnik \cite{cortesvapnik1995support}.
+
+Por fim, o \textbf{Perceptron Multicamadas (MLP)} consiste em uma arquitetura de rede neural artificial direta constituída por uma camada de entrada, camadas ocultas com funções de ativação não lineares e uma camada de saída sigmoidal. O algoritmo propaga retroativamente os erros calculados pela função de perda, ajustando os pesos sinápticos via gradiente descendente. O marco teórico para o treinamento dessas redes foi consolidado por Rumelhart, Hinton e Williams \cite{rumelhart1986learning}.

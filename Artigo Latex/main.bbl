@@ -1,0 +1,70 @@
+\begin{thebibliography}{}
+
+\bibitem[Al-Milli et~al. 2024]{almilli2024investigation}
+Al-Milli, N., Al-Anani, A., and Al-Madi, M. (2024).
+\newblock An investigation into the prediction of annual income levels through
+  the utilization of demographic features employing the modified uci adult
+  dataset.
+\newblock In {\em Proceedings of the IEEE International Conference on
+  Information Technology}, pages 112--118. IEEE.
+
+\bibitem[Becker and Kohavi 1996]{becker1996adult}
+Becker, B. and Kohavi, R. (1996).
+\newblock Adult.
+\newblock UCI Machine Learning Repository.
+\newblock {DOI}: https://doi.org/10.24432/C5XW20.
+
+\bibitem[Cortes and Vapnik 1995]{cortesvapnik1995support}
+Cortes, C. and Vapnik, V. (1995).
+\newblock Support-vector networks.
+\newblock {\em Machine Learning}, 20(3):273--297.
+
+\bibitem[Cover and Hart 1967]{coverhart1967nearest}
+Cover, T. and Hart, P. (1967).
+\newblock Nearest neighbor pattern classification.
+\newblock {\em IEEE Transactions on Information Theory}, 13(1):21--27.
+
+\bibitem[Cox 1958]{cox1958regression}
+Cox, D.~R. (1958).
+\newblock The regression analysis of binary sequences.
+\newblock {\em Journal of the Royal Statistical Society: Series B
+  (Methodological)}, 20(2):215--232.
+
+\bibitem[Dimitriou and Karampidis 2023]{dimitriou2023comparison}
+Dimitriou, V. and Karampidis, K. (2023).
+\newblock Comparison of machine learning models applied on anonymized data with
+  different techniques.
+\newblock In {\em Proceedings of the 2023 IEEE International Conference on
+  Cyber Security and Resilience (CSR)}, pages 401--406. IEEE.
+
+\bibitem[Duda and Hart 1973]{dudahart1973pattern}
+Duda, R.~O. and Hart, P.~E. (1973).
+\newblock {\em Pattern Classification and Scene Analysis}.
+\newblock John Wiley \& Sons, New York.
+
+\bibitem[Friedler et~al. 2019]{friedler2019comparative}
+Friedler, S.~A., Scheidegger, C., Venkatasubramanian, S., Choudhary, S., and
+  Hamilton, E.~P. (2019).
+\newblock A comparative study of fairness-enhancing supervised learning
+  algorithms.
+\newblock {\em Data Mining and Knowledge Discovery}, 33(2):326--363.
+
+\bibitem[Pedregosa et~al. 2011]{scikit-learn}
+Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel,
+  O., Blondel, M., Prettenhofer, P., Weiss, R., Dubourg, V., Vanderplas, J.,
+  Passos, A., Cournapeau, D., Brucher, M., Perrot, M., and Duchesnay, E.
+  (2011).
+\newblock Scikit-learn: Machine learning in {P}ython.
+\newblock {\em Journal of Machine Learning Research}, 12:2825--2830.
+
+\bibitem[Quinlan 1986]{quinlan1986induction}
+Quinlan, J.~R. (1986).
+\newblock Induction of decision trees.
+\newblock {\em Machine Learning}, 1(1):81--106.
+
+\bibitem[Rumelhart et~al. 1986]{rumelhart1986learning}
+Rumelhart, D.~E., Hinton, G.~E., and Williams, R.~J. (1986).
+\newblock Learning representations by back-propagating errors.
+\newblock {\em Nature}, 323(6088):533--536.
+
+\end{thebibliography}

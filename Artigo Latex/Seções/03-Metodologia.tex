@@ -1,0 +1,70 @@
+\section{Metodologia Experimental}
+
+\subsection{Conjunto de Dados}
+Os experimentos foram realizados utilizando o conjunto de dados \textit{Adult Income Dataset} \cite{becker1996adult}. O conjunto é amplamente utilizado, principalmente em benchmarks de classificação binária, com o objetivo de prever se a renda anual de adultos ultrapassa o teto de 50 mil dólares, utilizando como base atributos socioeconômicos e demográficos extraídos de um censo norte-americano de 1994. O conjunto de dados é constituído por 48.842 instâncias e 14 atributos preditores. Destes, seis são do tipo contínuo (age, fnlwgt, education-num, capital-gain, capital-loss e hours-per-week) e oito são do tipo nominal (workclass, education, marital-status, occupation, relationship, race, sex e native-country). A variável alvo assume valores abaixo de 50 mil ($<=$50K, representando a classe negativa) e acima de 50 mil ($>$50K, representando a classe positiva). 
+A distribuição é desbalanceada, isto é, 76\%(37120) das instâncias são da classe negativa, enquanto 24\%(11722) pertencem à classe positiva.
+
+\subsection{Pré-Processamento de Dados}
+O processo de preparação dos dados foi dividido em cinco etapas, implementadas sob o paradigma de pipeline da biblioteca scikit-learn \cite{scikit-learn}. Isso garante que todas as transformações sejam aprendidas exclusivamente sobre os dados de treino e aplicadas aos dados de validação e teste, prevenindo o vazamento de dados (\textit{data leakage}).
+
+\subsubsection{Normalização da Variável Alvo}
+A variável alvo é composta majoritariamente por strings e apresenta inconsistências de formatação. Por exemplo, versões do dataset distribuídas pelo repositório UCI contêm registros com sufixo de ponto final ($<=$50K, $>$50K), gerados por divisões internas do próprio repositório. Para garantir a integridade dos dados, todos os valores foram formatados para a remoção de espaços ou caracteres especiais ao final da cadeia (\textit{trailing dot}). Em seguida, a variável foi codificada numericamente através do LabelEncoder, resultando no mapeamento $<=$50K $\rightarrow$ 0 (classe negativa) e $>$50K $\rightarrow$ 1 (classe positiva).
+
+\subsubsection{Tratamento de Valores Ausentes}
+O \textit{Adult Dataset} representa valores desconhecidos com o caractere '?' nos atributos categóricos, notadamente em workclass, occupation e native-country. Esses marcadores foram convertidos para o valor sentinela NaN do NumPy por meio de substituição global sobre o DataFrame de características (X.replace('?', np.nan)), tornando-os compatíveis com os mecanismos do scikit-learn.
+
+A imputação foi aplicada de forma distinta de acordo com o tipo de atributo. Para os numéricos contínuos, adotou-se a estratégia da mediana, devido à sua robustez a outliers em distribuições assimétricas. Para os categóricos, adotou-se a moda (most\_frequent), preservando a categoria mais frequente por coluna. Ambas as imputações foram implementadas com o SimpleImputer.
+
+\subsubsection{Identificação e Separação de Atributos por Tipo}
+Os atributos foram particionados em dois grupos definidos por listas explícitas. Os seis atributos numéricos contínuos (age, fnlwgt, education-num, capital-gain, capital-loss e hours-per-week) foram declarados diretamente, enquanto os oito atributos categóricos nominais foram obtidos por exclusão das demais colunas do DataFrame. Essa separação, realizada por meio do ColumnTransformer, é essencial para aplicar transformações distintas a cada grupo.
+
+\subsubsection{Normalização Numérica}
+Após a separação, os seis atributos numéricos foram submetidos à padronização Z-score com o StandardScaler, transformando cada atributo para média zero e desvio padrão unitário conforme a equação: 
+$$z=\frac{x-\mu}{\sigma}$$
+Nesta equação, $\mu$ representa a média e $\sigma$ representa o desvio padrão dos atributos calculados. Esta etapa é fundamental para algoritmos sensíveis à escala dos dados, como \textit{K-Nearest Neighbors} (KNN), \textit{Support Vector Machine} (SVM), Regressão Logística e Redes Neurais MLP, visto que utilizam métricas de distância ou otimização baseada em gradiente.
+
+\subsubsection{Codificação de Atributos Categóricos}
+Os oito atributos categóricos nominais foram transformados utilizando a codificação \textit{One-Hot} (OneHotEncoder), que cria colunas binárias para cada categoria distinta presente no conjunto de treino. O parâmetro handle\_unknown='ignore' foi configurado para que eventuais categorias presentes na validação ou no teste, mas ausentes no treino, sejam codificadas como um vetor nulo, evitando exceções durante a validação cruzada. O parâmetro sparse\_output=False foi definido para retornar matrizes densas, compatíveis com todos os estimadores utilizados.
+
+\subsection{Particionamento dos Dados}
+A divisão dos dados foi estruturada em dois níveis de protocolos, visando assegurar a otimização de hiperparâmetros e a avaliação final em dados independentes do processo de treinamento.
+
+No primeiro nível, o conjunto completo de dados foi separado em 80\% para treino e 20\% para teste (\textit{holdout}) por meio da função train\_test\_split, utilizando o parâmetro stratify=y\_encoded para preservar a proporção original de classes (~76/24) em ambas as partições. A semente aleatória foi fixada (random\_state=42) para assegurar a reprodutibilidade. O conjunto de teste foi reservado exclusivamente para a avaliação final, não sendo utilizado durante a seleção de hiperparâmetros.
+
+No segundo nível, a partição de treino foi avaliada internamente através de uma validação cruzada estratificada com dez partições (\textit{10-fold Stratified Cross-Validation}), implementada com StratifiedKFold(n\_splits=10, shuffle=True, random\_state=42). Esse procedimento assegura que a estimativa de desempenho não seja influenciada por uma divisão aleatória favorável e mantém o equilíbrio de classes em cada partição.
+
+Em razão da complexidade computacional do SVM com kernel não-linear, optou-se pela implementação do LinearSVC, que resolve o problema de margem máxima via liblinear com complexidade linear no número de amostras, viabilizando o treinamento sobre o conjunto completo sem a necessidade de subamostragem. O particionamento gerado foi serializado em disco (cache/holdout.joblib) para garantir que todos os modelos fossem avaliados sobre o mesmo conjunto idêntico em rodadas subsequentes.
+
+\subsection{Algoritmos de Classificação}
+Foram avaliados seis algoritmos de aprendizado de máquina supervisionado, todos implementados pela biblioteca scikit-learn:
+\begin{itemize}
+    \item Árvore de Decisão (DecisionTreeClassifier)
+    \item K-Vizinhos Mais Próximos (KNeighborsClassifier)
+    \item Naive Bayes Gaussiano (GaussianNB)
+    \item Regressão Logística (LogisticRegression)
+    \item Support Vector Machine Linear (LinearSVC)
+    \item Rede Neural Artificial MLP (MLPClassifier)
+\end{itemize}
+
+\subsection{Otimização de Hiperparâmetros}
+A seleção de hiperparâmetros foi realizada através de busca em grade (\textit{Grid Search}), implementada com o GridSearchCV, utilizando as dez partições estratificadas como validação interna. O parâmetro refit="f1" foi configurado para que o modelo seja reajustado com a melhor combinação sobre o conjunto de treino completo ao final da busca, utilizando o F1-Score como critério principal de seleção devido ao forte desbalanceamento de classes do dataset. A Tabela \ref{tab:hiperparametros} apresenta os espaços de hiperparâmetros investigados para cada algoritmo.
+
+\input{Seções/03.1 Tabela de Hiperparâmetros}
+
+\subsection{Avaliação e Métricas}
+Após a identificação dos melhores hiperparâmetros, o melhor pipeline de cada algoritmo foi avaliado novamente em validação cruzada através da função cross\_validate, registrando as métricas de cada partição de forma individual. Essa etapa permitiu calcular a média e o desvio padrão de cada métrica com base em dez execuções independentes, fornecendo estimativas robustas do desempenho esperado. 
+
+Foram adotadas quatro métricas de desempenho, tendo a classe positiva ($>$50K, codificada como 1) como referência:
+\begin{itemize}
+    \item Acurácia (Accuracy): Predições corretas sobre o total de instâncias.
+    \item Precisão (Precision): Verdadeiros positivos em relação a todas as instâncias preditas como positivas.
+    \item Revocação (Recall): Verdadeiros positivos em relação a todas as instâncias que são realmente positivas.
+    \item F1-Score: Média harmônica entre Precisão e Revocação, sendo a métrica mais relevante neste cenário de classes desbalanceadas.
+\end{itemize}
+A avaliação final e independente foi realizada utilizando todo o conjunto de teste (20\% do total) com os melhores pipelines já treinados, sem qualquer reajuste posterior.
+
+\subsection{Implementação e Reprodutibilidade}
+Para garantir a reprodutibilidade fiel, todo o experimento foi desenvolvido em Python 3, utilizando as bibliotecas scikit-learn (modelagem e avaliação), pandas e numpy (manipulação de dados). Todos os pipelines, incluindo pré-processamento e classificadores, foram serializados em disco por meio da biblioteca joblib. As predições, os históricos do processo de otimização e as matrizes de confusão foram exportados no formato CSV em diretórios específicos de cache e resultados. A semente aleatória (random\_state=42) foi rigorosamente fixada em todas as etapas que envolvem estocasticidade.
+
+Os resultados do GridSearchCV foram consolidados pelo próprio script principal, o qual extraiu a média e o desvio padrão das métricas, identificou a melhor configuração por modelo e exportou o ranqueamento final em formato CSV. A partir desses relatórios gerados pelo código, os dados numéricos foram tabulados para a construção das tabelas comparativas apresentadas neste manuscrito.
+Como etapa complementar, foi desenvolvido um script para consolidar os resultados experimentais dos classificadores, calculando métricas a partir dos arquivos de predição, gerando matrizes de confusão e exportando tabelas e gráficos em formato CSV e PNG. Para os modelos Árvore de Decisão e KNN, também foram armazenados os resultados do GridSearchCV, incluindo os melhores hiperparâmetros, médias, desvios padrão e modelos finais serializados em formato .joblib, garantindo maior organização, rastreabilidade e reprodutibilidade dos experimentos.

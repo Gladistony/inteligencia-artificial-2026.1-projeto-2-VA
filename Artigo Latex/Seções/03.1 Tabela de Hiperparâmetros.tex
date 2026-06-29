@@ -1,0 +1,30 @@
+\begin{table}[ht]
+\centering
+\caption{Espaços de hiperparâmetros avaliados para cada algoritmo no GridSearchCV}
+\label{tab:hiperparametros}
+\begin{tabular}{lll}
+\toprule
+\textbf{Algoritmo} & \textbf{Hiperparâmetro} & \textbf{Valores Avaliados} \\
+\midrule
+
+Árvore de Decisão & criterion & gini, entropy \\
+                  & max\_depth & 5, 10, 20, None \\
+                  & min\_samples\_split & 2, 5, 10 \\
+\midrule
+
+KNN & n\_neighbors & 3, 5, 7, 11 \\
+    & weights & uniform, distance \\
+\midrule
+
+Regressão Logística & C & 0.01, 0.1, 1, 10 \\
+\midrule
+
+LinearSVM & C & 0.01, 0.1, 1, 10 \\
+\midrule
+
+MLP & hidden\_layer\_sizes & (64,), (128,), (64, 32) \\
+    & activation & relu, tanh \\
+    & alpha & 0.0001, 0.001 \\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,30 @@
+\begin{table}[htbp]
+\centering
+\caption{Resultados dos modelos e seus melhores hiperparâmetros}
+\label{tab:resultados_modelos}
+\renewcommand{\arraystretch}{1.3} % Aumenta o espaçamento vertical entre as linhas
+\resizebox{\textwidth}{!}{% % Garante que a tabela se ajuste perfeitamente à margem da página
+\begin{tabular}{llllll}
+\toprule
+\textbf{Modelo} & \textbf{Parâmetro} & \textbf{Accuracy} & \textbf{Precision} & \textbf{Recall} & \textbf{F1} \\
+\midrule
+DecisionTree & criterion: 'gini' & 0.8563 ± 0.0048 & 0.7606 ± 0.0133 & 0.5840 ± 0.0238 & 0.6603 ± 0.0156 \\
+             & max\_depth: 10 & & & & \\
+             & min\_samples\_split: 2 & & & & \\
+\midrule
+LogisticRegression & C: 10 & 0.8503 ± 0.0060 & 0.7305 ± 0.0135 & 0.5940 ± 0.0206 & 0.6551 ± 0.0163 \\
+\midrule
+MLP & activation: 'relu' & 0.8403 ± 0.0057 & 0.6829 ± 0.0171 & 0.6241 ± 0.0449 & 0.6509 ± 0.0215 \\
+    & alpha: 0.001 & & & & \\
+    & hidden\_layer\_sizes: (64,) & & & & \\
+\midrule
+LinearSVM & C: 1 & 0.8503 ± 0.0059 & 0.7371 ± 0.0128 & 0.5826 ± 0.0208 & 0.6507 ± 0.0166 \\
+\midrule
+KNN & n\_neighbors: 11 & 0.8402 ± 0.0054 & 0.6899 ± 0.0140 & 0.6047 ± 0.0158 & 0.6444 ± 0.0126 \\
+    & weights: 'uniform' & & & & \\
+\midrule
+GaussianNB & - & 0.5911 ± 0.0131 & 0.3626 ± 0.0076 & 0.9320 ± 0.0112 & 0.5220 ± 0.0085 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
