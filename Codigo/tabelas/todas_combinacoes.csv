@@ -1,0 +1,54 @@
+Modelo,Parâmetros,Accuracy,Precision,Recall,F1
+DecisionTree,"{'classifier__criterion': 'gini', 'classifier__max_depth': 5, 'classifier__min_samples_split': 2}",0.8492 ± 0.0047,0.7546 ± 0.0132,0.549 ± 0.0212,0.6353 ± 0.0151
+DecisionTree,"{'classifier__criterion': 'gini', 'classifier__max_depth': 5, 'classifier__min_samples_split': 5}",0.8492 ± 0.0047,0.7546 ± 0.0132,0.5488 ± 0.0213,0.6352 ± 0.0151
+DecisionTree,"{'classifier__criterion': 'gini', 'classifier__max_depth': 5, 'classifier__min_samples_split': 10}",0.8492 ± 0.0047,0.7546 ± 0.0132,0.5488 ± 0.0213,0.6352 ± 0.0151
+DecisionTree,"{'classifier__criterion': 'gini', 'classifier__max_depth': 10, 'classifier__min_samples_split': 2}",0.8563 ± 0.0048,0.7606 ± 0.0133,0.584 ± 0.0238,0.6603 ± 0.0156
+DecisionTree,"{'classifier__criterion': 'gini', 'classifier__max_depth': 10, 'classifier__min_samples_split': 5}",0.8562 ± 0.0048,0.7608 ± 0.0135,0.5833 ± 0.0237,0.66 ± 0.0155
+DecisionTree,"{'classifier__criterion': 'gini', 'classifier__max_depth': 10, 'classifier__min_samples_split': 10}",0.8563 ± 0.0049,0.761 ± 0.0136,0.5834 ± 0.0238,0.6601 ± 0.0157
+DecisionTree,"{'classifier__criterion': 'gini', 'classifier__max_depth': 20, 'classifier__min_samples_split': 2}",0.8315 ± 0.0067,0.6549 ± 0.0179,0.6274 ± 0.0167,0.6406 ± 0.0128
+DecisionTree,"{'classifier__criterion': 'gini', 'classifier__max_depth': 20, 'classifier__min_samples_split': 5}",0.8354 ± 0.007,0.6681 ± 0.0184,0.622 ± 0.0182,0.644 ± 0.0143
+DecisionTree,"{'classifier__criterion': 'gini', 'classifier__max_depth': 20, 'classifier__min_samples_split': 10}",0.839 ± 0.0074,0.6801 ± 0.019,0.6188 ± 0.0195,0.6478 ± 0.0161
+DecisionTree,"{'classifier__criterion': 'gini', 'classifier__max_depth': None, 'classifier__min_samples_split': 2}",0.811 ± 0.0061,0.6015 ± 0.013,0.6244 ± 0.0172,0.6127 ± 0.0129
+DecisionTree,"{'classifier__criterion': 'gini', 'classifier__max_depth': None, 'classifier__min_samples_split': 5}",0.8213 ± 0.0053,0.6312 ± 0.0115,0.6105 ± 0.015,0.6206 ± 0.012
+DecisionTree,"{'classifier__criterion': 'gini', 'classifier__max_depth': None, 'classifier__min_samples_split': 10}",0.8263 ± 0.0053,0.6452 ± 0.0115,0.61 ± 0.0168,0.627 ± 0.0126
+DecisionTree,"{'classifier__criterion': 'entropy', 'classifier__max_depth': 5, 'classifier__min_samples_split': 2}",0.846 ± 0.0054,0.7545 ± 0.0145,0.5294 ± 0.0238,0.6219 ± 0.0179
+DecisionTree,"{'classifier__criterion': 'entropy', 'classifier__max_depth': 5, 'classifier__min_samples_split': 5}",0.846 ± 0.0054,0.7545 ± 0.0145,0.5294 ± 0.0238,0.6219 ± 0.0179
+DecisionTree,"{'classifier__criterion': 'entropy', 'classifier__max_depth': 5, 'classifier__min_samples_split': 10}",0.846 ± 0.0054,0.7545 ± 0.0145,0.5294 ± 0.0238,0.6219 ± 0.0179
+DecisionTree,"{'classifier__criterion': 'entropy', 'classifier__max_depth': 10, 'classifier__min_samples_split': 2}",0.8538 ± 0.0058,0.7506 ± 0.0302,0.5872 ± 0.0366,0.6574 ± 0.0159
+DecisionTree,"{'classifier__criterion': 'entropy', 'classifier__max_depth': 10, 'classifier__min_samples_split': 5}",0.8536 ± 0.0054,0.7502 ± 0.0292,0.5865 ± 0.0367,0.6569 ± 0.0156
+DecisionTree,"{'classifier__criterion': 'entropy', 'classifier__max_depth': 10, 'classifier__min_samples_split': 10}",0.854 ± 0.0053,0.7521 ± 0.0289,0.5862 ± 0.0372,0.6574 ± 0.0159
+DecisionTree,"{'classifier__criterion': 'entropy', 'classifier__max_depth': 20, 'classifier__min_samples_split': 2}",0.8385 ± 0.0069,0.6779 ± 0.019,0.6217 ± 0.0247,0.6482 ± 0.0161
+DecisionTree,"{'classifier__criterion': 'entropy', 'classifier__max_depth': 20, 'classifier__min_samples_split': 5}",0.8412 ± 0.0072,0.6875 ± 0.0203,0.6191 ± 0.0254,0.6511 ± 0.0167
+DecisionTree,"{'classifier__criterion': 'entropy', 'classifier__max_depth': 20, 'classifier__min_samples_split': 10}",0.8428 ± 0.0071,0.6926 ± 0.0197,0.6185 ± 0.0282,0.653 ± 0.018
+DecisionTree,"{'classifier__criterion': 'entropy', 'classifier__max_depth': None, 'classifier__min_samples_split': 2}",0.8176 ± 0.0105,0.6179 ± 0.0222,0.6247 ± 0.0238,0.6212 ± 0.0216
+DecisionTree,"{'classifier__criterion': 'entropy', 'classifier__max_depth': None, 'classifier__min_samples_split': 5}",0.8204 ± 0.01,0.6295 ± 0.0218,0.6081 ± 0.0244,0.6185 ± 0.0217
+DecisionTree,"{'classifier__criterion': 'entropy', 'classifier__max_depth': None, 'classifier__min_samples_split': 10}",0.8246 ± 0.0099,0.641 ± 0.0221,0.6084 ± 0.0226,0.6242 ± 0.0212
+GaussianNB,{},0.5911 ± 0.0131,0.3626 ± 0.0076,0.932 ± 0.0112,0.522 ± 0.0085
+KNN,"{'classifier__n_neighbors': 3, 'classifier__weights': 'uniform'}",0.8255 ± 0.0063,0.6468 ± 0.0162,0.5981 ± 0.0155,0.6213 ± 0.013
+KNN,"{'classifier__n_neighbors': 3, 'classifier__weights': 'distance'}",0.8201 ± 0.006,0.6329 ± 0.0159,0.593 ± 0.0146,0.6122 ± 0.0116
+KNN,"{'classifier__n_neighbors': 5, 'classifier__weights': 'uniform'}",0.8329 ± 0.0069,0.6692 ± 0.019,0.5982 ± 0.0132,0.6316 ± 0.0133
+KNN,"{'classifier__n_neighbors': 5, 'classifier__weights': 'distance'}",0.8285 ± 0.006,0.6567 ± 0.0175,0.5956 ± 0.0117,0.6245 ± 0.0104
+KNN,"{'classifier__n_neighbors': 7, 'classifier__weights': 'uniform'}",0.8358 ± 0.0051,0.6759 ± 0.0144,0.604 ± 0.012,0.6378 ± 0.0103
+KNN,"{'classifier__n_neighbors': 7, 'classifier__weights': 'distance'}",0.8325 ± 0.0053,0.6667 ± 0.0142,0.6012 ± 0.0136,0.6321 ± 0.0112
+KNN,"{'classifier__n_neighbors': 11, 'classifier__weights': 'uniform'}",0.8402 ± 0.0054,0.6899 ± 0.014,0.6047 ± 0.0158,0.6444 ± 0.0126
+KNN,"{'classifier__n_neighbors': 11, 'classifier__weights': 'distance'}",0.8369 ± 0.0057,0.6805 ± 0.0155,0.6018 ± 0.0159,0.6386 ± 0.0126
+LinearSVM,{'classifier__C': 0.01},0.8505 ± 0.0054,0.7403 ± 0.0116,0.5785 ± 0.0206,0.6493 ± 0.0159
+LinearSVM,{'classifier__C': 0.1},0.8505 ± 0.0059,0.738 ± 0.0132,0.5819 ± 0.0206,0.6506 ± 0.0165
+LinearSVM,{'classifier__C': 1},0.8503 ± 0.0059,0.7371 ± 0.0128,0.5826 ± 0.0208,0.6507 ± 0.0166
+LinearSVM,{'classifier__C': 10},0.8502 ± 0.0061,0.7369 ± 0.0134,0.5822 ± 0.021,0.6504 ± 0.0171
+LogisticRegression,{'classifier__C': 0.01},0.8485 ± 0.0062,0.7391 ± 0.0149,0.5673 ± 0.0192,0.6418 ± 0.0168
+LogisticRegression,{'classifier__C': 0.1},0.8509 ± 0.0059,0.7344 ± 0.0127,0.5907 ± 0.0201,0.6546 ± 0.0162
+LogisticRegression,{'classifier__C': 1},0.8504 ± 0.0062,0.7312 ± 0.0138,0.5932 ± 0.0204,0.6549 ± 0.0167
+LogisticRegression,{'classifier__C': 10},0.8503 ± 0.006,0.7305 ± 0.0135,0.594 ± 0.0206,0.6551 ± 0.0163
+MLP,"{'classifier__activation': 'relu', 'classifier__alpha': 0.0001, 'classifier__hidden_layer_sizes': (64,)}",0.8408 ± 0.0055,0.6895 ± 0.0186,0.6124 ± 0.0396,0.6476 ± 0.0193
+MLP,"{'classifier__activation': 'relu', 'classifier__alpha': 0.0001, 'classifier__hidden_layer_sizes': (128,)}",0.8323 ± 0.0076,0.6667 ± 0.0229,0.6012 ± 0.0315,0.6316 ± 0.019
+MLP,"{'classifier__activation': 'relu', 'classifier__alpha': 0.0001, 'classifier__hidden_layer_sizes': (64, 32)}",0.8255 ± 0.0054,0.6519 ± 0.0205,0.5863 ± 0.0327,0.6164 ± 0.0139
+MLP,"{'classifier__activation': 'relu', 'classifier__alpha': 0.001, 'classifier__hidden_layer_sizes': (64,)}",0.8403 ± 0.0057,0.6829 ± 0.0171,0.6241 ± 0.0449,0.6509 ± 0.0215
+MLP,"{'classifier__activation': 'relu', 'classifier__alpha': 0.001, 'classifier__hidden_layer_sizes': (128,)}",0.8333 ± 0.0057,0.6662 ± 0.0162,0.6107 ± 0.0275,0.6367 ± 0.0153
+MLP,"{'classifier__activation': 'relu', 'classifier__alpha': 0.001, 'classifier__hidden_layer_sizes': (64, 32)}",0.8299 ± 0.0056,0.6544 ± 0.0178,0.6159 ± 0.0226,0.6341 ± 0.0112
+MLP,"{'classifier__activation': 'tanh', 'classifier__alpha': 0.0001, 'classifier__hidden_layer_sizes': (64,)}",0.8296 ± 0.0039,0.6557 ± 0.0141,0.6089 ± 0.0303,0.6308 ± 0.0135
+MLP,"{'classifier__activation': 'tanh', 'classifier__alpha': 0.0001, 'classifier__hidden_layer_sizes': (128,)}",0.8246 ± 0.0073,0.6431 ± 0.0214,0.6039 ± 0.0169,0.6225 ± 0.0115
+MLP,"{'classifier__activation': 'tanh', 'classifier__alpha': 0.0001, 'classifier__hidden_layer_sizes': (64, 32)}",0.8161 ± 0.006,0.6208 ± 0.0142,0.597 ± 0.015,0.6086 ± 0.0119
+MLP,"{'classifier__activation': 'tanh', 'classifier__alpha': 0.001, 'classifier__hidden_layer_sizes': (64,)}",0.8348 ± 0.0049,0.6746 ± 0.0202,0.6013 ± 0.0224,0.6352 ± 0.0089
+MLP,"{'classifier__activation': 'tanh', 'classifier__alpha': 0.001, 'classifier__hidden_layer_sizes': (128,)}",0.8288 ± 0.0059,0.6556 ± 0.0204,0.6042 ± 0.0376,0.6277 ± 0.0168
+MLP,"{'classifier__activation': 'tanh', 'classifier__alpha': 0.001, 'classifier__hidden_layer_sizes': (64, 32)}",0.8187 ± 0.0072,0.6242 ± 0.0186,0.612 ± 0.021,0.6177 ± 0.0141
