@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.6.4)  29 JUN 2026 08:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.6.4)  29 JUN 2026 08:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -377,15 +377,11 @@ ogisticRegression.jpeg> <./Imagens/LinearSVM.jpeg>] [10 <./Imagens/MLP.jpeg> <.
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-03-20>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
  5631 strings out of 467356
  96269 string characters out of 5418692
- 530217 words of memory out of 6000000
+ 530218 words of memory out of 6000000
  34624 multiletter control sequences out of 15000+600000
  645727 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
